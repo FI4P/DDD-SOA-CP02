@@ -9,7 +9,7 @@ spring:
     # URL de conexão com o seu banco de dados PostgreSQL
     url: jdbc:postgresql://localhost:5432/hotel_booking
     # Nome de usuário do PostgreSQL
-    username: postgres
+    username: [PREENCHER SEU USUARIO POSTGRES]
     # Senha do PostgreSQL
     password: [PREENCHER SUA SENHA POSTGRES]
     driver-class-name: org.postgresql.Driver
