@@ -1,0 +1,264 @@
+type: collection.insomnia.rest/5.0
+name: FIAP-hotel_booking
+meta:
+  id: wrk_fe272ddf0328417b8f8e3d51218d97ec
+  created: 1761578360309
+  modified: 1761578360309
+  description: ""
+collection:
+  - name: Reservations
+    meta:
+      id: fld_3c974f4742fa4efa8caca50901d8429f
+      created: 1759175519473
+      modified: 1761581797418
+      sortKey: -1759175519473
+      description: ""
+    children:
+      - url: "{{ _.BASE_URL }}{{ _.RESOURCE }}"
+        name: Create
+        meta:
+          id: req_6a0f647cf8874e0d84efda0201376332
+          created: 1759175521853
+          modified: 1761601118145
+          isPrivate: false
+          description: ""
+          sortKey: -1759175521853
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "roomId": "d136ff67-cee4-4099-91e8-5c6fa23bc21c",
+              "guestName": "Mariana Vieira",
+              "checkinExpected": "2025-12-06",
+              "checkoutExpected": "2025-12-07"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.BASE_URL }}{{ _.RESOURCE }}"
+        name: Index
+        meta:
+          id: req_6a5cb89616f84b68a7799211f0231f4e
+          created: 1761589675384
+          modified: 1761589681456
+          isPrivate: false
+          description: ""
+          sortKey: -1759175521803
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.BASE_URL }}{{ _.RESOURCE }}"
+        name: Update Statys
+        meta:
+          id: req_ae702ba22e2b46e5a383b1d893959eab
+          created: 1761597431843
+          modified: 1761597431843
+          isPrivate: false
+          description: ""
+          sortKey: -1759175521828
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "roomId": "d136ff67-cee4-4099-91e8-5c6fa23bc21c",
+              "guestName": "Enzo Rodrigues",
+              "checkinExpected": "2025-11-01",
+              "checkoutExpected": "2025-11-05",
+              "totalAmount": 1200.50
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.BASE_URL }}{{ _.RESOURCE }}/{% response 'body',
+          'req_6a0f647cf8874e0d84efda0201376332', 'b64::JC5pZA==::46b', 'never',
+          60 %}"
+        name: Update Status
+        meta:
+          id: req_3e4a43b52ccb48db810aee1b54a2f368
+          created: 1761597436698
+          modified: 1761601097334
+          isPrivate: false
+          description: ""
+          sortKey: -1759175521815.5
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "status": "CANCELED"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    environment:
+      RESOURCE: reservations
+    environmentPropertyOrder:
+      "&":
+        - RESOURCE
+  - name: Rooms
+    meta:
+      id: fld_3774b29e6e524943be1a420f36ffe10d
+      created: 1760129155924
+      modified: 1761578410588
+      sortKey: -1760129155924
+      description: ""
+    children:
+      - url: "{{ _.BASE_URL }}{{ _.RESOURCE }}"
+        name: Create
+        meta:
+          id: req_f0f0d61601b149d19ee90f6e81aece27
+          created: 1760129172103
+          modified: 1761581388094
+          isPrivate: false
+          description: ""
+          sortKey: -1760129172103
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "number": 2,
+              "type": "STANDARD",
+              "capacity": 1,
+              "pricePerNight": 150.00,
+              "status": "ATIVO"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.1
+        authentication:
+          type: none
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.BASE_URL }}{{ _.RESOURCE }}"
+        name: Index
+        meta:
+          id: req_acedff0e74df43549c2955886e739c4b
+          created: 1761581327453
+          modified: 1761581341929
+          isPrivate: false
+          description: ""
+          sortKey: -1759652346978
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.1
+        authentication:
+          type: none
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    authentication:
+      type: bearer
+    environment:
+      RESOURCE: rooms
+    environmentPropertyOrder:
+      "&":
+        - RESOURCE
+  - name: Documentation
+    meta:
+      id: fld_f07cb8b90da640f2ba56abbd89944783
+      created: 1761581776280
+      modified: 1761581792333
+      sortKey: -1761581776280
+      description: ""
+    children:
+      - url: http://localhost:8080/swagger-ui/index.html
+        name: documentation
+        meta:
+          id: req_724938242c4146e3b9edc7a35a1a7282
+          created: 1761581700702
+          modified: 1761581781752
+          isPrivate: false
+          description: ""
+          sortKey: -1761581781710
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_58bf3b8d7cc1495f87db1a7faf747f74
+    created: 1758750823478
+    modified: 1761263404880
+  cookies:
+    - id: cc431193-87e6-42a4-ae0d-167e96c50f20
+      key: JSESSIONID
+      value: 96C34CD6099D27C163E13A56CD1D3037
+      domain: localhost
+      path: /
+      secure: false
+      httpOnly: true
+      hostOnly: true
+environments:
+  name: DEV
+  meta:
+    id: env_0520f6196ea2465b8308d465f90de77b
+    created: 1758750823477
+    modified: 1760974708819
+    isPrivate: false
+  data:
+    BASE_URL: http://localhost:8080/
