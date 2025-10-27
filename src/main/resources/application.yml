@@ -1,0 +1,38 @@
+# Arquivo: src/main/resources/application.yml
+
+spring:
+  web:
+    server:
+      port: 8080 
+  # Configuração do Banco de Dados PostgreSQL
+  datasource:
+    # URL de conexão com o seu banco de dados PostgreSQL
+    url: jdbc:postgresql://localhost:5432/hotel_booking
+    # Nome de usuário do PostgreSQL
+    username: postgres
+    # Senha do PostgreSQL
+    password: [PREENCHER SUA SENHA POSTGRES]
+    driver-class-name: org.postgresql.Driver
+
+  # Configuração do Spring Data JPA / Hibernate
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+
+  flyway:
+    # Habilita o Flyway (default: true)
+    enabled: true
+    schemas: public
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+
+logging:
+  level:
+    # Configura o log para exibir os comandos SQL gerados
+    org.hibernate.SQL: debug
